@@ -3,6 +3,7 @@
 - React
 - Material-ui
 - https://reqres.in -> API FAKE
+- Fazer um fork deste repositório.
 
 ## Criar um SPA com 3 rotas:
 
@@ -20,4 +21,5 @@
   - Form para alterar email, first_name e last_name.
   - Fazer request para atualizar usuário em PUT `/api/users/:userId`,
   adicionar um mensagem informando o sucesso|erro.
-  - Button voltar para users
+  - Button voltar para users.
+
