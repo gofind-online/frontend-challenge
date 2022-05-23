@@ -9,7 +9,6 @@ const apiGet = async ( ) => {
   }
 
 }
-
 export default apiGet;
 
 
