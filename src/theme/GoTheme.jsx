@@ -17,12 +17,11 @@ export const GoTheme = createTheme({
       dark: '#424242',
       paper: '#FFFFFF',
     },
-    border:{
-      main:'#AAAAAA',
+    warning: {
+      main :'#FDD835',
+      alert: '#FF042D'
     },
-    spacing:{
 
-    }
     
   }
 });

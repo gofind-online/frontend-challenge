@@ -1,30 +1,28 @@
 import { Box, AppBar } from '@mui/material';
 import { makeStyles } from '@material-ui/styles';
-import GoLogo from '../../img/GoLogo.png'
+import GoLogo from '../../img/GoLogo.png';
+
+
 
 const useStyles = makeStyles(theme => {
 
 });
 
-const Header = ({ children }) => {
-
+const Header = () => {
 
   return (
     <>
       <AppBar sx={{
-        bgcolor: 'background.dark',
-
-
+        bgcolor: 'background.dark'
       }}>
         <Box sx={{
           padding: 3,
-
         }}
         >
-          <img src={GoLogo} width='100' />
+
+          <img alt="Logo da empresa GoFind" src={GoLogo} width='100' />
         </Box>
       </AppBar>
-      {children}
     </>
   );
 };

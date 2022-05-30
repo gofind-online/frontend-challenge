@@ -9,16 +9,16 @@ import {
 } from 'react-router';
 
 const AppRoutes = () => {
-  
+
   return (
     <Routes>
-      <Route path="/home" element={<Home/>}/>
-      <Route path="/user-edit" element={<UserEditPage />} />
+      <Route path="/home" element={<Home />} />
       <Route path="/users" element={<UsersPage />} />
-      <Route path="*" element={<Navigate to='/home' />}/>
+      <Route path="/user-edit" element={<UserEditPage />} />
+      <Route path="*" element={<Navigate to='/home' />} />
     </Routes>
   );
-  
+
 };
 
 export default AppRoutes;
