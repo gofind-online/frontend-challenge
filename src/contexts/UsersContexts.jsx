@@ -5,6 +5,6 @@ export const UsersContext = createContext();
 export function UsersContextProvider({ children }) {
   //const [] = useState();
 
-  return <UsersContext.Provider>{children}</UsersContext.Provider>
+  return <UsersContext.Provider value={''}>{children}</UsersContext.Provider>
   
 };

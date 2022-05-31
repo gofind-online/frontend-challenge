@@ -7,7 +7,7 @@ const apiGet = async () => {
     const json = await res.json();
     return (json.data);
   } catch (error) {
-    console.error(error)
+    console.error(error);
   }
 
 }
