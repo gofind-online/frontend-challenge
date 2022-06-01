@@ -1,7 +1,7 @@
 const BASE_URL = 'https://reqres.in/api/users'
 
 
-const apiGet = async () => {
+export const apiGet = async () => {
   try {
     const res = await fetch(BASE_URL);
     const json = await res.json();
@@ -9,9 +9,17 @@ const apiGet = async () => {
   } catch (error) {
     console.error(error);
   }
-
 }
-export default apiGet;
+
+export const getUser = async (id) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${id}`);
+    const json = await res.json();
+    return (json.data);
+  } catch (error) {
+    console.error(error);
+  }
+}
 
 
 // 2) PUT

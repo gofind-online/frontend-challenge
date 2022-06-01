@@ -14,7 +14,7 @@ const AppRoutes = () => {
     <Routes>
       <Route path="/home" element={<Home />} />
       <Route path="/users" element={<UsersPage />} />
-      <Route path="/user-edit" element={<UserEditPage />} />
+      <Route path="/user-edit/:id" element={<UserEditPage />} />
       <Route path="*" element={<Navigate to='/home' />} />
     </Routes>
   );

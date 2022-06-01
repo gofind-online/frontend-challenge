@@ -16,10 +16,11 @@ import {
   TableRow,
   TableBody
 } from '@mui/material';
-import apiGet from '../../api';
+import { apiGet } from '../../api';
+import { Link } from 'react-router-dom';
 
 
-const UsersTable = ({children}) => {
+const UsersTable = ({ children }) => {
 
   const [users, setUsers] = useState([]);
 
@@ -30,6 +31,7 @@ const UsersTable = ({children}) => {
   useEffect(() => {
     loadData();
   }, []);
+
 
 
   return (
@@ -59,21 +61,23 @@ const UsersTable = ({children}) => {
                 <TableCell align="right" sx={{
                   display: "flex",
                 }} >
-                  <Button >
-                    <EditIcon sx={{
-                      color: "black"
-                    }} />
-                  </Button>
-    
+                  <Link to={`/user-edit/${user.id}`}>
+                    <Button >
+                      <EditIcon sx={{
+                        color: "black"
+                      }} />
+                    </Button>
+                  </Link>
+
                   <Divider orientation="vertical" />
                   <Button>
                     <DeleteIcon sx={{
                       color: "red"
                     }} />
                   </Button>
-    
+
                 </TableCell>
-    
+
               </TableRow>
             )
           })}
