@@ -1,12 +1,24 @@
 import { TextField } from "@mui/material";
 
 
-const TextInput = ({ id, label, variant, myColor, myBgColor }) => {
+const TextInput = ({
+  id,
+  label,
+  variant,
+  myColor,
+  myBgColor,
+  handleOnChange,
+  eValue,
+  name
+}) => {
 
   return (
     <TextField
       id={id}
       label={label}
+      onChange={handleOnChange}
+      defaultValue={eValue}
+      name={name}
       sx={{
         marginRight: 1,
         marginBottom: 2,

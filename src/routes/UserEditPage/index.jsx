@@ -1,10 +1,13 @@
-import { Box, Button, TableCell, TableRow } from '@mui/material';
+import { Box, Button, Snackbar, Table, TableBody, TableCell, TableRow } from '@mui/material';
 import { Container } from '@mui/system';
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { getUser } from '../../api'
+import { useParams, useNavigate } from 'react-router-dom';
+import { getUser } from '../../api';
+import UserForm from '../../components/UserForm';
 
 const UserEdit = () => {
+
+  const navigate = useNavigate();
 
   const { id } = useParams();
 
@@ -20,25 +23,67 @@ const UserEdit = () => {
 
   const toggleUserForm = () => {
     setShowUserForm(!showUserForm)
+  };
+
+  const editPost = (user) => {
+    async function apiPatch() {
+      try {
+        const res = await fetch(`https://reqres.in/api/users/${id}`, {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(user)
+        })
+        const json = await res.json();
+  
+        setUser(json.data);
+        setShowUserForm(false)
+  
+        return json.data
+      } catch (err) {
+        console.log(err);
+      }
   }
+  apiPatch()
+  };
 
 
   return (
     <Container sx={{
       marginTop: "7rem",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center"
     }}>
 
       <Box>
+
+        {!showUserForm ? (
+          
+          <Table>
+            <TableBody>
+              <TableRow>
+                <TableCell>{`${user.first_name || user.name} ${user.last_name}`}</TableCell>
+                <TableCell>{user.email}</TableCell>
+              </TableRow>
+            </TableBody>
+          </Table>
+        ) : (
+          <UserForm
+            userData={{
+              first_name: user.first_name,
+              last_name: user.last_name,
+              email: user.email
+            }}
+            handleSubmit={editPost}
+            btnText="Salvar"
+          />
+        )}
         <Button onClick={toggleUserForm}>
           {!showUserForm ? 'Editar Usuário' : 'Fechar'}
         </Button>
-
-        {!showUserForm ? (
-          <TableRow>
-            <TableCell>{`${user.first_name} ${user.last_name}`}</TableCell>
-            <TableCell>{user.email}</TableCell>
-          </TableRow>
-        ) : (<p>User Form</p>)}
+        <Button onClick={() => navigate(-1)}>Voltar</Button>
 
       </Box>
 
