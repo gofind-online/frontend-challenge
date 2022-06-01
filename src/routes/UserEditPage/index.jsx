@@ -1,10 +1,17 @@
-import { Box, Button, Table, TableBody, TableCell, TableRow } from '@mui/material';
+import {
+  Alert,
+  Box,
+  Button,
+  Table,
+  TableBody,
+  TableCell,
+  TableRow
+} from '@mui/material';
 import { Container } from '@mui/system';
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getUser } from '../../api';
 import UserForm from '../../components/UserForm';
-import { AlertMessage } from '../../components/AlertMessage'
 
 const UserEdit = () => {
 
@@ -14,8 +21,7 @@ const UserEdit = () => {
 
   const [user, setUser] = useState([]);
   const [showUserForm, setShowUserForm] = useState(false);
-  //const [message, setMessage] = useState();
-  //const [messageType, setMessageType] = useState();
+  const [message, setMessage] = useState();
 
   useEffect(() => {
     async function resUser() {
@@ -39,17 +45,17 @@ const UserEdit = () => {
           body: JSON.stringify(user)
         })
         const json = await res.json();
-  
-        setUser(json.data);
-        setShowUserForm(false)
-        
-  
+
+        setUser(json);
+        setShowUserForm(false);
+        setMessage("aa");
+
         return json.data
       } catch (err) {
         console.log(err);
       }
-  }
-  apiPatch()
+    }
+    apiPatch()
   };
 
 
@@ -64,31 +70,31 @@ const UserEdit = () => {
       <Box>
 
         {!showUserForm ? (
-          
-          <Table>
-            <TableBody>
-              <TableRow>
-                <TableCell>{`${user.first_name || user.name} ${user.last_name}`}</TableCell>
-                <TableCell>{user.email}</TableCell>
-              </TableRow>
-            </TableBody>
-          </Table>
+        <Table>
+          <TableBody>
+            <TableRow>
+              <TableCell>{`${user.first_name || user.name} ${user.last_name}`}</TableCell>
+              <TableCell>{user.email}</TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
         ) : (
-          <UserForm
-            userData={{
-              first_name: user.first_name,
-              last_name: user.last_name,
-              email: user.email
-            }}
-            handleSubmit={editPost}
-            btnText="Salvar"
-          />
+        <UserForm
+          userData={{
+            first_name: user.first_name,
+            last_name: user.last_name,
+            email: user.email
+          }}
+          handleSubmit={editPost}
+          btnText="Salvar"
+        />
         )}
         <Button onClick={toggleUserForm}>
           {!showUserForm ? 'Editar Usuário' : 'Fechar'}
         </Button>
-        <AlertMessage />
         <Button onClick={() => navigate(-1)}>Voltar</Button>
+      { message && <Alert severity="success">Usuário editado com sucesso!</Alert>}
+
 
       </Box>
 

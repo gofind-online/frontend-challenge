@@ -1,13 +1,6 @@
 import { Box, AppBar } from '@mui/material';
-import { makeStyles } from '@material-ui/styles';
 import GoLogo from '../../img/GoLogo.png';
 import { Link } from 'react-router-dom';
-
-
-
-const useStyles = makeStyles(theme => {
-
-});
 
 const Header = () => {
 

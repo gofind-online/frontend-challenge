@@ -47,7 +47,7 @@ const UserForm = ({
         eValue={user.email}
         handleOnChange={handleChange}
       />
-      <Button onClick={submit && btnOnClick} variant="contained">{btnText}</Button>
+      <Button onClick={submit} variant="contained">{btnText}</Button>
     </Box>
   )
 }
