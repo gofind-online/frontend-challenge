@@ -1,9 +1,10 @@
-import { Box, Button, Snackbar, Table, TableBody, TableCell, TableRow } from '@mui/material';
+import { Box, Button, Table, TableBody, TableCell, TableRow } from '@mui/material';
 import { Container } from '@mui/system';
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getUser } from '../../api';
 import UserForm from '../../components/UserForm';
+import { AlertMessage } from '../../components/AlertMessage'
 
 const UserEdit = () => {
 
@@ -13,6 +14,8 @@ const UserEdit = () => {
 
   const [user, setUser] = useState([]);
   const [showUserForm, setShowUserForm] = useState(false);
+  //const [message, setMessage] = useState();
+  //const [messageType, setMessageType] = useState();
 
   useEffect(() => {
     async function resUser() {
@@ -39,6 +42,7 @@ const UserEdit = () => {
   
         setUser(json.data);
         setShowUserForm(false)
+        
   
         return json.data
       } catch (err) {
@@ -83,6 +87,7 @@ const UserEdit = () => {
         <Button onClick={toggleUserForm}>
           {!showUserForm ? 'Editar Usuário' : 'Fechar'}
         </Button>
+        <AlertMessage />
         <Button onClick={() => navigate(-1)}>Voltar</Button>
 
       </Box>

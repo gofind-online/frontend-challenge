@@ -4,21 +4,17 @@ import AppRoutes from './routes';
 import { GoTheme } from './theme/GoTheme';
 import Header from './components/Header';
 import { Container } from '@mui/system';
-import { UsersContextProvider } from './contexts/UsersContexts'
-
 
 const App = () => {
   return (
     <ThemeProvider theme={GoTheme}>
       <CssBaseline>
-        <UsersContextProvider>
-          <Container maxWidth='xl'>
-            <Router>
-              <Header />
-              <AppRoutes />
-            </Router>
-          </Container>
-        </UsersContextProvider>
+        <Container maxWidth='xl'>
+          <Router>
+            <Header />
+            <AppRoutes />
+          </Router>
+        </Container>
       </CssBaseline>
     </ThemeProvider>
   );

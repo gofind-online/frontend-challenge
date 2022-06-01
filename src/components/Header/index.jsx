@@ -1,6 +1,7 @@
 import { Box, AppBar } from '@mui/material';
 import { makeStyles } from '@material-ui/styles';
 import GoLogo from '../../img/GoLogo.png';
+import { Link } from 'react-router-dom';
 
 
 
@@ -19,8 +20,10 @@ const Header = () => {
           padding: 3,
         }}
         >
+          <Link to={"/home"}>
+            <img alt="Logo da empresa GoFind" src={GoLogo} width='100' />
+          </Link>
 
-          <img alt="Logo da empresa GoFind" src={GoLogo} width='100' />
         </Box>
       </AppBar>
     </>

@@ -5,7 +5,8 @@ import { useState } from 'react'
 const UserForm = ({
   handleSubmit,
   userData,
-  btnText
+  btnText,
+  btnOnClick
 }) => {
 
   const [user, setUser] = useState(userData || {});
@@ -20,8 +21,6 @@ const UserForm = ({
   };
 
   return (
-
-
     <Box component="form" onSubmit={submit} sx={{
       display: "flex",
       flexDirection: "column",
@@ -48,10 +47,9 @@ const UserForm = ({
         eValue={user.email}
         handleOnChange={handleChange}
       />
-      <Button onClick={submit} variant="contained">{btnText}</Button>
+      <Button onClick={submit && btnOnClick} variant="contained">{btnText}</Button>
     </Box>
   )
-
 }
 
 export default UserForm;

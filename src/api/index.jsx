@@ -22,5 +22,7 @@ export const getUser = async (id) => {
 }
 
 
-// 2) PUT
+export const editPost = async (id) => {
+  
+}
 
