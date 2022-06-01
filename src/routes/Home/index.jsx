@@ -1,12 +1,12 @@
-import { Box, Button, Container, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Box, Button, Container, Typography, Divider } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 
 const Home = () => {
 
   return (
     <Container maxWidth="xl" sx={{
-      minWidth: '540px',
+      minWidth: "540px",
       paddingTop: "7rem",
       paddingBottom: "7rem",
       marginTop: "7rem",
@@ -22,7 +22,7 @@ const Home = () => {
       }}>
         <Typography maxWidth="70%" variant="h3">Sistema de Usuários GoFind</Typography>
       </Box>
-
+      <Divider orientation="vertical" flexItem />
       <Box sx={{
         width: "50%",
         minWidth: "215px",
@@ -38,7 +38,7 @@ const Home = () => {
         >
           Começe a consultar usuários de forma prática
         </Typography>
-        <Link style={{ textDecoration: 'none' }} to={"/users"}>
+        <Link style={{ textDecoration: "none" }} to={"/users"}>
           <Button variant="contained">Lista de Usuários</Button>
         </Link>
       </Box>
@@ -46,7 +46,5 @@ const Home = () => {
     </Container>
   )
 };
-
-
 
 export default Home;

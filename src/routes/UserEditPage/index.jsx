@@ -48,7 +48,7 @@ const UserEdit = () => {
 
         setUser(json);
         setShowUserForm(false);
-        setMessage("aa");
+        setMessage(' ');
 
         return json.data
       } catch (err) {
@@ -58,7 +58,6 @@ const UserEdit = () => {
     apiPatch()
   };
 
-
   return (
     <Container sx={{
       marginTop: "7rem",
@@ -66,40 +65,34 @@ const UserEdit = () => {
       alignItems: "center",
       justifyContent: "center"
     }}>
-
       <Box>
-
         {!showUserForm ? (
-        <Table>
-          <TableBody>
-            <TableRow>
-              <TableCell>{`${user.first_name || user.name} ${user.last_name}`}</TableCell>
-              <TableCell>{user.email}</TableCell>
-            </TableRow>
-          </TableBody>
-        </Table>
+          <Table>
+            <TableBody>
+              <TableRow>
+                <TableCell>{`${user.first_name || user.name} ${user.last_name}`}</TableCell>
+                <TableCell>{user.email}</TableCell>
+              </TableRow>
+            </TableBody>
+          </Table>
         ) : (
-        <UserForm
-          userData={{
-            first_name: user.first_name,
-            last_name: user.last_name,
-            email: user.email
-          }}
-          handleSubmit={editPost}
-          btnText="Salvar"
-        />
+          <UserForm
+            userData={{
+              first_name: user.first_name,
+              last_name: user.last_name,
+              email: user.email
+            }}
+            handleSubmit={editPost}
+            btnText="Salvar"
+          />
         )}
         <Button onClick={toggleUserForm}>
           {!showUserForm ? 'Editar Usuário' : 'Fechar'}
         </Button>
         <Button onClick={() => navigate(-1)}>Voltar</Button>
-      { message && <Alert severity="success">Usuário editado com sucesso!</Alert>}
-
-
+        {message && <Alert severity="success">Usuário editado com sucesso!</Alert>}
       </Box>
-
     </Container>
-
   );
 };
 

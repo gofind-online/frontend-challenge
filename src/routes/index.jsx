@@ -1,7 +1,6 @@
 import Home from './Home';
 import UserEditPage from './UserEditPage';
 import UsersPage from './UsersPage';
-
 import {
   Routes,
   Route,
@@ -18,7 +17,6 @@ const AppRoutes = () => {
       <Route path="*" element={<Navigate to='/home' />} />
     </Routes>
   );
-
 };
 
 export default AppRoutes;

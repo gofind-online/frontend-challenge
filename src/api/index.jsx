@@ -1,6 +1,5 @@
 const BASE_URL = 'https://reqres.in/api/users'
 
-
 export const apiGet = async () => {
   try {
     const res = await fetch(BASE_URL);
@@ -8,8 +7,8 @@ export const apiGet = async () => {
     return (json.data);
   } catch (error) {
     console.error(error);
-  }
-}
+  };
+};
 
 export const getUser = async (id) => {
   try {
@@ -18,11 +17,5 @@ export const getUser = async (id) => {
     return (json.data);
   } catch (error) {
     console.error(error);
-  }
-}
-
-
-export const editPost = async (id) => {
-  
-}
-
+  };
+};

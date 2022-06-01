@@ -1,28 +1,30 @@
 import { React } from 'react';
-import { Box, Divider, Typography, TextField } from "@mui/material";
-import GoButton from "../GoButton";
+import { Box, Divider, Typography, TextField } from '@mui/material';
+import GoButton from '../GoButton';
 
 const SearchBox = () => {
 
   return (
-    <Box component='form' sx={{
-      boxSizing: 'border-box',
-      width: '100%',
-      minHeight: '10rem',
-      backgroundColor: 'background.main',
-      boxShadow: 3,
-      display: 'flex',
-      alignItems: 'flex-start',
-      justifyContent: 'space-between',
-      flexDirection: 'column',
-      padding: 3,
-    }}>
-      <Box
-      >
+    <Box
+      component="form"
+      sx={{
+        boxSizing: "border-box",
+        width: "100%",
+        minHeight: "10rem",
+        backgroundColor: "background.main",
+        boxShadow: 3,
+        display: "flex",
+        alignItems: "flex-start",
+        justifyContent: "space-between",
+        flexDirection: "column",
+        padding: 3,
+      }}
+    >
+      <Box>
         <Typography
           variant="h6"
           sx={{
-            marginBottom: '10px',
+            marginBottom: "10px",
           }}
         >
           Busca
@@ -61,11 +63,12 @@ const SearchBox = () => {
       <Divider
         variant="outlined"
         sx={{
-          width: '100%',
+          width: "100%",
         }}
       />
       <Box>
-        <GoButton sx={{
+        <GoButton
+        sx={{
           marginTop: "10px",
           boxShadow: 0
         }}

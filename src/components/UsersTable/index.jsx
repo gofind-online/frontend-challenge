@@ -20,7 +20,7 @@ import { apiGet } from '../../api';
 import { Link } from 'react-router-dom';
 
 
-const UsersTable = ({ children }) => {
+const UsersTable = () => {
 
   const [users, setUsers] = useState([]);
 
@@ -32,59 +32,56 @@ const UsersTable = ({ children }) => {
     loadData();
   }, []);
 
-
-
   return (
+    <>
 
-    <TableContainer color="background" sx={{
-      marginTop: 2
-    }}>
-      <Table size="large" width="100%" sx={{
-        minWidth: 650
+      <TableContainer color="background" sx={{
+        marginTop: 2
       }}>
-        <TableHead>
-          <TableRow tabIndex={-2}>
-            <TableCell>Nome do Usuário</TableCell>
-            <TableCell align="right">E-mail</TableCell>
-            <TableCell align="right">Ações</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {users.map(user => {
-            return (
-              <TableRow
-                key={user.id}
-                scope="row"
-              >
-                <TableCell >{`${user.first_name} ${user.last_name}`}</TableCell>
-                <TableCell align="right">{user.email}</TableCell>
-                <TableCell align="right" sx={{
-                  display: "flex",
-                }} >
-                  <Link to={`/user-edit/${user.id}`}>
-                    <Button >
-                      <EditIcon sx={{
-                        color: "black"
+        <Table size="large" width="100%" sx={{
+          minWidth: 650
+        }}>
+          <TableHead>
+            <TableRow tabIndex={-2}>
+              <TableCell>Nome do Usuário</TableCell>
+              <TableCell align="right">E-mail</TableCell>
+              <TableCell align="right">Ações</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {users.map(user => {
+              return (
+                <TableRow
+                  key={user.id}
+                  scope="row"
+                >
+                  <TableCell >{`${user.first_name} ${user.last_name}`}</TableCell>
+                  <TableCell align="right">{user.email}</TableCell>
+                  <TableCell align="right" sx={{
+                    display: "flex",
+                  }} >
+                    <Link to={`/user-edit/${user.id}`}>
+                      <Button >
+                        <EditIcon sx={{
+                          color: "black",
+                          marginLeft: "2px"
+                        }} />
+                      </Button>
+                    </Link>
+                    <Divider orientation="vertical" flexItem />
+                    <Button>
+                      <DeleteIcon sx={{
+                        color: "red"
                       }} />
                     </Button>
-                  </Link>
-
-                  <Divider orientation="vertical" />
-                  <Button>
-                    <DeleteIcon sx={{
-                      color: "red"
-                    }} />
-                  </Button>
-
-                </TableCell>
-
-              </TableRow>
-            )
-          })}
-        </TableBody>
-      </Table>
-    </TableContainer>
-
+                  </TableCell>
+                </TableRow>
+              )
+            })}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </>
   );
 
 }

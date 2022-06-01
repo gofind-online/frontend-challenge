@@ -6,7 +6,6 @@ import UsersTable from '../../components/UsersTable'
 import GoButton from '../../components/GoButton';
 
 const UsersPage = () => {
-  
 
   return (
     <Container sx={{
@@ -26,7 +25,6 @@ const UsersPage = () => {
         Adicionar Usuário
       </GoButton>
       <UsersTable/>
-     
     </Container>
   );
 };

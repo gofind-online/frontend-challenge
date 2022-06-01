@@ -1,19 +1,19 @@
-import { Button } from "@mui/material";
+import { Button } from '@mui/material';
 import { Search, PersonAdd } from '@mui/icons-material/';
 
 
 const iconTypes = {
   personAdd: <PersonAdd />,
   search: <Search />
-}
+};
 
 const margins = {
-  default: 2
-}
+  default: 2,
+};
 
 const borderSets = {
-  light: "1px solid #AAAAAA"
-}
+  light: '1px solid #AAAAAA',
+};
 
 const GoButton = ({
   children,
@@ -32,9 +32,9 @@ const GoButton = ({
       color={typeColor}
       sx={{
         boxShadow: 0,
-        paddingLeft: '16px',
-        paddingRight: '34px',
-        borderRadius: '4px',
+        paddingLeft: "16px",
+        paddingRight: "34px",
+        borderRadius: "4px",
         marginTop: margins[marginTop],
         color: color,
         backgroundColor: bgColor,
@@ -44,7 +44,7 @@ const GoButton = ({
       <span style={{
         display: "flex",
         alignItems: "center",
-        marginRight: '8px'
+        marginRight: "8px"
       }}> {iconTypes[type]} </span>
       {children}
     </Button>

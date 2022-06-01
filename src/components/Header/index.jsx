@@ -7,16 +7,15 @@ const Header = () => {
   return (
     <>
       <AppBar sx={{
-        bgcolor: 'background.dark'
+        bgcolor: "background.dark"
       }}>
         <Box sx={{
           padding: 3,
         }}
         >
           <Link to={"/home"}>
-            <img alt="Logo da empresa GoFind" src={GoLogo} width='100' />
+            <img alt="Logo da empresa GoFind" src={GoLogo} width="100" />
           </Link>
-
         </Box>
       </AppBar>
     </>

@@ -21,6 +21,6 @@ export const GoTheme = createTheme({
       main :'#FDD835',
       alert: '#FF042D'
     },
-  }
+  },
 });
 

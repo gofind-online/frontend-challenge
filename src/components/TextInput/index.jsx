@@ -1,12 +1,9 @@
-import { TextField } from "@mui/material";
+import { TextField } from '@mui/material';
 
 
 const TextInput = ({
   id,
   label,
-  variant,
-  myColor,
-  myBgColor,
   handleOnChange,
   eValue,
   name

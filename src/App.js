@@ -9,7 +9,7 @@ const App = () => {
   return (
     <ThemeProvider theme={GoTheme}>
       <CssBaseline>
-        <Container maxWidth='xl'>
+        <Container maxWidth="xl">
           <Router>
             <Header />
             <AppRoutes />
